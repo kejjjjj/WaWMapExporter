@@ -22,10 +22,10 @@ std::unique_ptr<cm_geometry> CM_GetBrushPoints(cbrush_t* brush, const fvec3& pol
 	if (!brush)
 		return nullptr;
 
-	float outPlanes[40][4]{};
+	float outPlanes[128][4]{};
 	int planeCount = BrushToPlanes(brush, outPlanes);
 	int intersections = GetPlaneIntersections((const float**)outPlanes, planeCount, pts);
-	adjacencyWinding_t windings[40]{};
+	adjacencyWinding_t windings[128]{};
 
 	int intersection = 0;
 	int num_verts = 0;
